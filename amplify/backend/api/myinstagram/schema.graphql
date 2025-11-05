@@ -1,0 +1,41 @@
+type User @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  username: String! @index(name: "byUsername", queryField: "userByUsername")
+  email: String!
+  bio: String
+  avatar: String
+  posts: [Post] @hasMany(indexName: "byUser", fields: ["id"])
+  likes: [Like] @hasMany(indexName: "byUserLikes", fields: ["id"])
+  comments: [Comment] @hasMany(indexName: "byUserComments", fields: ["id"])
+}
+
+type Post @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  type: String!
+  content: String!
+  owner: ID! @index(name: "byUser", sortKeyFields: ["createdAt"])
+  user: User @belongsTo(fields: ["owner"])
+  likes: [Like] @hasMany(indexName: "byPost", fields: ["id"])
+  comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Like @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  postID: ID! @index(name: "byPost", sortKeyFields: ["owner"])
+  owner: ID! @index(name: "byUserLikes", sortKeyFields: ["postID"])
+  post: Post @belongsTo(fields: ["postID"])
+  user: User @belongsTo(fields: ["owner"])
+}
+
+type Comment @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  postID: ID! @index(name: "byPost", sortKeyFields: ["createdAt"])
+  content: String!
+  owner: ID! @index(name: "byUserComments", sortKeyFields: ["postID"])
+  post: Post @belongsTo(fields: ["postID"])
+  user: User @belongsTo(fields: ["owner"])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
