@@ -9,9 +9,13 @@ export const createUser = /* GraphQL */ `
     createUser(input: $input, condition: $condition) {
       id
       username
+      name
       email
       bio
       avatar
+      birthdate
+      gender
+      phone_number
       posts {
         nextToken
         __typename
@@ -39,9 +43,13 @@ export const updateUser = /* GraphQL */ `
     updateUser(input: $input, condition: $condition) {
       id
       username
+      name
       email
       bio
       avatar
+      birthdate
+      gender
+      phone_number
       posts {
         nextToken
         __typename
@@ -69,9 +77,13 @@ export const deleteUser = /* GraphQL */ `
     deleteUser(input: $input, condition: $condition) {
       id
       username
+      name
       email
       bio
       avatar
+      birthdate
+      gender
+      phone_number
       posts {
         nextToken
         __typename
@@ -104,9 +116,13 @@ export const createPost = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -139,9 +155,13 @@ export const updatePost = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -174,9 +194,13 @@ export const deletePost = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -217,9 +241,13 @@ export const createLike = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -252,9 +280,13 @@ export const updateLike = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -287,9 +319,13 @@ export const deleteLike = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -323,9 +359,13 @@ export const createComment = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -359,9 +399,13 @@ export const updateComment = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -395,9 +439,13 @@ export const deleteComment = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner

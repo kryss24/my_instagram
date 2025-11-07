@@ -25,7 +25,20 @@
 .profile-info h2 {
   font-size: 28px;
   font-weight: 300;
-  margin: 0 0 20px;
+  margin: 0;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0 20px;
+}
+
+.profile-info label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #8e8e8e;
+  margin-bottom: 5px;
 }
 
 .profile-stats {

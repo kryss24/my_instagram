@@ -6,9 +6,13 @@ export const getUser = /* GraphQL */ `
     getUser(id: $id) {
       id
       username
+      name
       email
       bio
       avatar
+      birthdate
+      gender
+      phone_number
       posts {
         nextToken
         __typename
@@ -38,9 +42,13 @@ export const listUsers = /* GraphQL */ `
       items {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -61,9 +69,13 @@ export const getPost = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -122,9 +134,13 @@ export const getLike = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -175,9 +191,13 @@ export const getComment = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -228,9 +248,13 @@ export const userByUsername = /* GraphQL */ `
       items {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -272,47 +296,15 @@ export const postsByOwnerAndCreatedAt = /* GraphQL */ `
     }
   }
 `;
-export const likesByPostIDAndOwner = /* GraphQL */ `
-  query LikesByPostIDAndOwner(
+export const likesByPostID = /* GraphQL */ `
+  query LikesByPostID(
     $postID: ID!
-    $owner: ModelIDKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelLikeFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    likesByPostIDAndOwner(
-      postID: $postID
-      owner: $owner
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        postID
-        owner
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const likesByOwnerAndPostID = /* GraphQL */ `
-  query LikesByOwnerAndPostID(
-    $owner: ID!
-    $postID: ModelIDKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelLikeFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    likesByOwnerAndPostID(
-      owner: $owner
+    likesByPostID(
       postID: $postID
       sortDirection: $sortDirection
       filter: $filter
@@ -332,48 +324,15 @@ export const likesByOwnerAndPostID = /* GraphQL */ `
     }
   }
 `;
-export const commentsByPostIDAndCreatedAt = /* GraphQL */ `
-  query CommentsByPostIDAndCreatedAt(
+export const commentsByPostID = /* GraphQL */ `
+  query CommentsByPostID(
     $postID: ID!
-    $createdAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelCommentFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    commentsByPostIDAndCreatedAt(
-      postID: $postID
-      createdAt: $createdAt
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        postID
-        content
-        owner
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const commentsByOwnerAndPostID = /* GraphQL */ `
-  query CommentsByOwnerAndPostID(
-    $owner: ID!
-    $postID: ModelIDKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    commentsByOwnerAndPostID(
-      owner: $owner
+    commentsByPostID(
       postID: $postID
       sortDirection: $sortDirection
       filter: $filter

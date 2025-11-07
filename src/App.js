@@ -60,12 +60,13 @@ function App() {
       <Authenticator
         formFields={{
           signUp: {
-            username: { order: 1, placeholder: 'Enter your desired username', isRequired: true, label: 'Username' },
-            email: { order: 2, placeholder: 'Enter your email', isRequired: true, label: 'Email' },
-            password: { order: 3, placeholder: 'Enter your password', isRequired: true, label: 'Password' },
-            phone_number: { order: 4, placeholder: 'Enter your phone number', isRequired: true, label: 'Phone Number' },
-            birthdate: { order: 5, placeholder: 'YYYY-MM-DD', isRequired: true, label: 'Birthdate' },
-            gender: { order: 6, placeholder: 'Enter your gender', isRequired: true, label: 'Gender' },
+            preferred_username: { order: 1, placeholder: 'Enter your username', isRequired: true, label: 'Username' },
+            name: { order: 2, placeholder: 'Enter your full name', isRequired: true, label: 'Name' },
+            email: { order: 3, placeholder: 'Enter your email', isRequired: true, label: 'Email' },
+            password: { order: 4, placeholder: 'Enter your password', isRequired: true, label: 'Password' },
+            phone_number: { order: 5, placeholder: 'Enter your phone number', isRequired: true, label: 'Phone Number' },
+            birthdate: { order: 6, placeholder: 'YYYY-MM-DD', isRequired: true, label: 'Birthdate' },
+            gender: { order: 7, placeholder: 'Enter your gender', isRequired: true, label: 'Gender' },
           },
         }}
       />
@@ -87,7 +88,7 @@ function App() {
                 </>
               }
             />
-            <Route path="/profile/:username" element={<Profile loggedInUser={dbUser} />} />
+            <Route path="/profile/:userId" element={<Profile loggedInUser={dbUser} />} />
           </Routes>
         </main>
       </div>

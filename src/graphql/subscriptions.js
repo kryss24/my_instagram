@@ -9,9 +9,13 @@ export const onCreateUser = /* GraphQL */ `
     onCreateUser(filter: $filter, owner: $owner) {
       id
       username
+      name
       email
       bio
       avatar
+      birthdate
+      gender
+      phone_number
       posts {
         nextToken
         __typename
@@ -39,9 +43,13 @@ export const onUpdateUser = /* GraphQL */ `
     onUpdateUser(filter: $filter, owner: $owner) {
       id
       username
+      name
       email
       bio
       avatar
+      birthdate
+      gender
+      phone_number
       posts {
         nextToken
         __typename
@@ -69,9 +77,13 @@ export const onDeleteUser = /* GraphQL */ `
     onDeleteUser(filter: $filter, owner: $owner) {
       id
       username
+      name
       email
       bio
       avatar
+      birthdate
+      gender
+      phone_number
       posts {
         nextToken
         __typename
@@ -104,9 +116,13 @@ export const onCreatePost = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -139,9 +155,13 @@ export const onUpdatePost = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -174,9 +194,13 @@ export const onDeletePost = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -217,9 +241,13 @@ export const onCreateLike = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -252,9 +280,13 @@ export const onUpdateLike = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -287,9 +319,13 @@ export const onDeleteLike = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -323,9 +359,13 @@ export const onCreateComment = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -359,9 +399,13 @@ export const onUpdateComment = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
@@ -395,9 +439,13 @@ export const onDeleteComment = /* GraphQL */ `
       user {
         id
         username
+        name
         email
         bio
         avatar
+        birthdate
+        gender
+        phone_number
         createdAt
         updatedAt
         owner
